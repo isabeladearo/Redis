@@ -1,0 +1,33 @@
+version: '3.8'
+
+name: redis
+
+services:
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - redis-network
+
+  redis-commander:
+    image: rediscommander/redis-commander
+    container_name: redis-commander
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    networks:
+      - redis-network
+
+volumes:
+  redis_data:
+
+networks:
+  redis-network:
+    driver: bridge
