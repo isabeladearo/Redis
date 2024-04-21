@@ -10,7 +10,7 @@ Utilize o seguinte comando na base do projeto:
 
 Após ter o ambiente preparado, rode os testes:
 
->dotnet test
+>cd test && dotnet test
 
 Você conseguirá, por meio dos testes, visualizar todo o funcionamento da aplicação e utilizar o debug.
 
